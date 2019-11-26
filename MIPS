@@ -1,0 +1,27 @@
+	.data
+
+mensagem: 	.asciiz "Digite um numero: "
+mensagem2: 	.asciiz "Digite outro numero: "
+mensagem3: 	.asciiz "Difereca dos valores digitados: "
+
+	.text
+
+main:	addi $v0, $zero, 4
+	la $a0, mensagem
+	syscall
+	addi $v0, $zero, 5
+	syscall
+	add $s0, $zero, $v0
+	addi $v0, $zero, 4
+	la $a0, mensagem2
+	syscall
+	addi $v0, $zero, 5
+	syscall
+	sub $s1, $zero, $v0
+	addi $v0, $zero, 4
+	la $a0, mensagem3
+	syscall
+	addi $v0, $zero, 1
+	add $a0, $s0, $s1
+	syscall
+	jr$ra
